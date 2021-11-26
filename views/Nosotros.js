@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, View, Button } from 'react-native';
+import { Text, StyleSheet, View, Button, TouchableHighlight } from 'react-native';
 import globalStyles from '../styles/globalStyles';
 
 import Gradiente from '../components/Gradiente';
@@ -27,10 +27,15 @@ const Nosotros = ( {navigation, route} ) => {
                 <Text style={globalStyles.parrafo}>Aca va la documentacion UX</Text>     
                 
                 <Button
-                    
+                    style={styles.btn}
                     title="Volver"
                     onPress={ () => volver() }
                 />
+                <View>
+                    <TouchableHighlight onPress={ () => volver() } style={styles.btn}>
+                        <Text style={styles.textoSubmit}>Volver</Text>
+                    </TouchableHighlight>
+                </View>
             </View>
         </>
     );
@@ -43,6 +48,17 @@ const styles = StyleSheet.create({
         //justifyContent: 'center',
         marginTop:30,
     },
+    btn:{
+        backgroundColor:"#1f2366",
+        padding: 12,
+        width:150,
+        marginVertical: 10,
+    },
+    textoSubmit: {
+        color: "#FFF",
+        fontWeight: "bold",
+        textAlign: "center",
+    }
 });
  
 export default Nosotros;

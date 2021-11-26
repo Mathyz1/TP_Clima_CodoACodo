@@ -130,7 +130,7 @@ export default function Formulario () {
                 <View>
                     <TextInput
                         value={ciudad}
-                        style={styles.imput}
+                        style={styles.input}
                         onChangeText={ ciudad => guardarBusqueda({...busqueda, ciudad}) } //va a leer lo que se escriba
                         placeholder="Ciudad"
                         placeholderTextColor="#666"
@@ -156,18 +156,20 @@ export default function Formulario () {
 };
 
 const styles = StyleSheet.create({
-    imput: {
+    input: {
         padding:10,
         height: 50,
         backgroundColor: "#FFF",
         fontSize: 20,
         marginBottom: 20,
         textAlign: "center",
+        width:350,
     },
     btnBuscar: {
         marginTop: 50,
-        backgroundColor: "#000",
+        backgroundColor: "#1f2366",
         padding: 10,
+        width:150,
         justifyContent: "center",
     },
     textoBuscar: {
@@ -175,12 +177,13 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         textTransform: "uppercase",
         textAlign: "center",
-        fontSize: 18,
+        //fontSize: 12,
     },
     formulario: {
         flex:1,
         alignContent:"center",
         justifyContent:"center",
+        alignItems:"center"
     }
 });
 

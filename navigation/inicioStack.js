@@ -15,11 +15,13 @@ const inicioStack = () => {
                 headerTitleAlign: 'center',
                 headerStyle: {
                 backgroundColor: '#1f2366',
+                //headerTransparent: true,
                 
                 },
                 headerTintColor: '#fff',
                 headerTitleStyle: {
                 fontWeight: 'bold',
+                
                 }
             }}  
         >

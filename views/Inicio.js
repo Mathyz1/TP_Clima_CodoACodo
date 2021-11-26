@@ -33,6 +33,7 @@ const Inicio = ({navigation}) => {
                     <Text style={styles.nombreAplicacion}>App Clima</Text>
                     <Text style={[globalStyles.titulo, styles.poppins]}>Descripcion</Text>
                     <Text>Aca va la descripcion de la aplicacion</Text>
+                    <Text>Esta aplicacion se encarga de mostrar el clima actual de las ciudades que elijas</Text>
                     <Text style={[globalStyles.titulo, styles.poppins]}>Uso</Text>
                     <Text>Aca va como se usa la aplicacion</Text>  
                      
