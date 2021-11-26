@@ -12,7 +12,9 @@ const Nosotros = ( {navigation, route} ) => {
 
     return (  
         <>
-            <Gradiente/>
+            <Gradiente
+                colorGradiente={['#97A7B7', '#B98A90', '#745B83']}
+            />
             <View style={styles.contenedor}>
                 <Text style={globalStyles.titulo}>Solucion</Text>
                 <Text style={globalStyles.parrafo}>Aca va la solucion que implementamos en la aplicacion</Text>
@@ -26,11 +28,6 @@ const Nosotros = ( {navigation, route} ) => {
                 <Text style={globalStyles.titulo}>Documentacion UX</Text>
                 <Text style={globalStyles.parrafo}>Aca va la documentacion UX</Text>     
                 
-                <Button
-                    style={styles.btn}
-                    title="Volver"
-                    onPress={ () => volver() }
-                />
                 <View>
                     <TouchableHighlight onPress={ () => volver() } style={styles.btn}>
                         <Text style={styles.textoSubmit}>Volver</Text>

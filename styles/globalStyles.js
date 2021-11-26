@@ -1,7 +1,5 @@
 import { StyleSheet } from "react-native";
 
-
-
 //borderBottomWidth: StyleSheet.hairlineWidth una linea debajo del texto
 const globalStyles = StyleSheet.create({
     titulo:{

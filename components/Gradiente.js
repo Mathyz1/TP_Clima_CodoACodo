@@ -2,11 +2,12 @@ import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StyleSheet, Dimensions } from 'react-native';
 
-export default function Gradiente () {
+export default function Gradiente ({colorGradiente}) {
     return(
         <LinearGradient
             // Background Linear Gradient
-            colors={['#97A7B7', '#B98A90', '#745B83']}
+            //colors={['#97A7B7', '#B98A90', '#745B83']}
+            colors={colorGradiente}
             style={styles.background}
         />
     );

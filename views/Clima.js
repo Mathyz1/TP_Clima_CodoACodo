@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from "react";
 import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
 import MapView, { Marker } from "react-native-maps";
+import Gradiente from "../components/Gradiente";
+import globalStyles from "../styles/globalStyles";
 
 export default function Clima ({route, navigation}) {
     
     //grados Kelvin para centigrados
     const kelvin = 273.15;
-    const [bgcolor, guardarBgcolor] = useState("rgb(71, 149, 212)")
+    const [bgcolor, guardarBgcolor] = useState("rgb(71, 149, 212)");
+    const [colorGradiente, guardarColorGradiente] = useState(["#45A9F5", "#69BDFD", "#45A9F5"]);
 
     console.log(route);
 
@@ -23,12 +26,17 @@ export default function Clima ({route, navigation}) {
 
         if(actual<10){
           guardarBgcolor("rgb(105, 108, 149)");
+          guardarColorGradiente(["#76A1CC", "#6082A5", "#4D6682"]);
         }else if(actual >= 10 && actual < 25){
           guardarBgcolor("rgb(71, 149, 212)");
+          guardarColorGradiente(["#45A9F5", "#69BDFD", "#45A9F5"]);
         } else{
           guardarBgcolor("rgb(178, 28, 61)");
+          guardarColorGradiente(["rgb(178, 28, 61)", "#69BDFD", "#45A9F5"]);
         }
+        console.log("color gradiente" + colorGradiente);
     }, [main]);
+    
 
     const nombreClima = () => {
         var nombreClimaActual="";
@@ -104,9 +112,31 @@ export default function Clima ({route, navigation}) {
 
     /* En el return se renderiza toda la vista de los datos del clima */
     return (
-        <View style={[styles.clima, bgColorApp]}>
+        <View style={[styles.clima/*, bgColorApp*/]}>
+     
+            <Gradiente
+                colorGradiente={colorGradiente}
+            />
 
-            <Text style={styles.texto}>Ciudad de { name }</Text>
+            <Text style={globalStyles.titulo}>Ciudad de { name }</Text>
+
+            
+            <Text style={[styles.texto, styles.actual]}>
+                {(main.temp - kelvin).toFixed(1) }
+                <Text style={styles.temperatura}>
+                    &#x2103;
+                </Text>
+        
+                <Image
+                    style={{tintColor:"#FFF"}}
+                    source={imagenClima()}
+                />
+                
+            </Text>
+
+            <Text style={globalStyles.parrafo}>
+                    {nombreClima()}
+            </Text>
 
             <MapView 
                 style={styles.map}
@@ -124,24 +154,10 @@ export default function Clima ({route, navigation}) {
                 />
               
             </MapView>
-            <Text style={[styles.texto, styles.actual]}>
-                {(main.temp - kelvin).toFixed(1) }
-                <Text style={styles.temperatura}>
-                    &#x2103;
-                </Text>
-        
-                <Image
-                    style={{tintColor:"#FFF"}}
-                    source={imagenClima()}
-                />
-                
-            </Text>
 
             <View style={styles.temperaturas}>
 
-                <Text style={styles.texto}>
-                    {nombreClima()}
-                </Text>
+                
 
                 <Text style={styles.texto}>
                     <Text style={styles.temperatura}>

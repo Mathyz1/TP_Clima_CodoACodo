@@ -125,7 +125,9 @@ export default function Formulario () {
 
     return (
         <>
-            <Gradiente/>
+            <Gradiente
+                colorGradiente={['#97A7B7', '#B98A90', '#745B83']}
+            />
             <View style={styles.formulario}>
                 <View>
                     <TextInput
