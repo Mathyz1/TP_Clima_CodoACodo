@@ -1,7 +1,9 @@
 import React from 'react';
 import { Text, StyleSheet, View, Button, TouchableHighlight } from 'react-native';
-import globalStyles from '../styles/globalStyles';
+import { Avatar } from 'react-native-elements';
 
+
+import globalStyles from '../styles/globalStyles';
 import Gradiente from '../components/Gradiente';
 
 const Nosotros = ( {navigation, route} ) => {
@@ -20,10 +22,30 @@ const Nosotros = ( {navigation, route} ) => {
                 <Text style={globalStyles.parrafo}>Aca va la solucion que implementamos en la aplicacion</Text>
 
                 <Text style={globalStyles.titulo}>Quienes somos</Text>
-                <Text style={globalStyles.parrafo}>Aca va quienes somos</Text> 
-                <Text style={globalStyles.parrafo}>Vanina Eliana Armida </Text> 
-                <Text style={globalStyles.parrafo}>Fernando Daniel González</Text> 
-                <Text style={globalStyles.parrafo}>Matias Nicolas Rivero</Text> 
+                <Text style={globalStyles.parrafo}>Aca va quienes somos</Text>
+                
+                   <View>
+                        <Avatar
+                            rounded
+                            title="VA"
+                        /> 
+                        <Text style={globalStyles.parrafo}>Vanina Eliana Armida </Text>
+                   </View>
+                   <View>
+                        <Avatar
+                            rounded
+                            title="FG"
+                        /> 
+                        <Text style={globalStyles.parrafo}>Fernando Daniel González</Text>
+                   </View>
+                   <View>
+                        <Avatar
+                            rounded
+                            title="MR"
+                        /> 
+                        <Text style={globalStyles.parrafo}>Matias Nicolas Rivero</Text> 
+                   </View>
+                
 
                 <Text style={globalStyles.titulo}>Documentacion UX</Text>
                 <Text style={globalStyles.parrafo}>Aca va la documentacion UX</Text>     

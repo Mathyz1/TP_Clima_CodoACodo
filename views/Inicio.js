@@ -35,10 +35,10 @@ const Inicio = ({navigation}) => {
                     
                     <Text style={styles.nombreAplicacion}>App Clima</Text>
                     <Text style={[globalStyles.titulo, styles.poppins]}>Descripcion</Text>
-                    <Text style={styles.poppinsLight}>Aca va la descripcion de la aplicacion</Text>
-                    <Text style={styles.poppinsLight}>Usando Poppins: Esta aplicacion se encarga de mostrar el clima actual de las ciudades que elijas</Text>
+                    <Text style={[globalStyles.parrafo, styles.poppinsLight]}>Aca va la descripcion de la aplicacion</Text>
+                    <Text style={[globalStyles.parrafo, styles.poppinsLight]}>Usando Poppins: Esta aplicacion se encarga de mostrar el clima actual de las ciudades que elijas</Text>
                     <Text style={[globalStyles.titulo, styles.poppins]}>Uso</Text>
-                    <Text>Sin poppins: Aca va como se usa la aplicacion</Text>  
+                    <Text style={globalStyles.parrafo}>Sin poppins: Aca va como se usa la aplicacion</Text>  
                      
                 </View>
                 </>
@@ -50,11 +50,11 @@ const styles = StyleSheet.create({
     contenedor: {
         flex: 1,
         alignItems: 'center',
-        marginTop:30,
     },
     nombreAplicacion:{
         fontSize:30,
-
+        marginTop:50,
+        marginBottom:50
     },
     poppins:{
         fontFamily: "Poppins_500Medium",

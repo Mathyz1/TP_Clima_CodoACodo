@@ -2,17 +2,19 @@ import { StyleSheet } from "react-native";
 
 //borderBottomWidth: StyleSheet.hairlineWidth una linea debajo del texto
 const globalStyles = StyleSheet.create({
-    titulo:{
-        fontSize:24,
-        fontWeight:"bold",
+    titulo: {
+        fontSize: 20,
+        fontWeight: "bold",
         padding: 4,
+        textTransform:"uppercase",
         color: "white",
         borderBottomColor: "#1f2366",
         borderBottomWidth: StyleSheet.hairlineWidth
     },
-    parrafo:{
-        fontSize:16,
+    parrafo: {
+        fontSize: 16,
         padding: 4,
+        marginHorizontal:10,
     }
 });
 
