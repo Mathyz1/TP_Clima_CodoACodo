@@ -1,8 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icon } from "react-native-elements";
 import { Switch } from "react-native-elements/dist/switch/switch";
+
+
 
 // React Navigation
 import { NavigationContainer } from '@react-navigation/native';
@@ -16,6 +18,7 @@ const Tab = createBottomTabNavigator();
 const Navigation = () => {
     return (
         <>
+            
             <NavigationContainer>
                 <Tab.Navigator
                     initialRouteName="InicioS"
@@ -51,6 +54,7 @@ const Navigation = () => {
                     />
                 </Tab.Navigator>
             </NavigationContainer>
+            
         </>
     );
 };
@@ -75,4 +79,9 @@ function screenOptions(route, color){
     return(
         <Icon type="material-community" name={iconName} size={22} color={color}/>
     );
-}
+};
+
+const styles = StyleSheet.create({
+      
+});
+

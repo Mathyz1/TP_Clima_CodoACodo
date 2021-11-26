@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TextInput, TouchableWithoutFeedback, Animated, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import Gradiente from "../components/Gradiente";
 
 export default function Formulario () {
 
@@ -15,7 +16,7 @@ export default function Formulario () {
     
       const [consultar, guardarConsultar] = useState(false);
       const [resultado, guardarResultado] = useState({});
-      const [bgcolor, guardarBgcolor] = useState("rgb(71, 149, 212)")
+      //const [bgcolor, guardarBgcolor] = useState("rgb(71, 149, 212)")
     
       /* se encarga de realizar la consulta a la API de OpenWeather y cambia el color segun un rango de clima */
       useEffect(() => {
@@ -32,17 +33,17 @@ export default function Formulario () {
               guardarConsultar(false);
     
               //modificar los colores de fondo segun la temperatura
-              const kelvin = 273.15;
-              const {main} = resultadoConsulta;
-              const actual = main.temp - kelvin;
+              //const kelvin = 273.15;
+              //const {main} = resultadoConsulta;
+              //const actual = main.temp - kelvin;
     
-              if(actual<10){
-                guardarBgcolor("rgb(105, 108, 149)");
-              }else if(actual >= 10 && actual < 25){
-                guardarBgcolor("rgb(71, 149, 212)");
-              } else{
-                guardarBgcolor("rgb(178, 28, 61)");
-              }
+              //if(actual<10){
+              //  guardarBgcolor("rgb(105, 108, 149)");
+              //}else if(actual >= 10 && actual < 25){
+              //  guardarBgcolor("rgb(71, 149, 212)");
+              //} else{
+              //  guardarBgcolor("rgb(178, 28, 61)");
+              //}
             
               /* 1. Navigate to the Details route with params */
                 navigation.navigate('Clima', {resultado: resultadoConsulta});
@@ -72,9 +73,9 @@ export default function Formulario () {
         Keyboard.dismiss();
       };
     
-      const bgColorApp = {
-        backgroundColor: bgcolor,
-      };
+      //const bgColorApp = {
+      //  backgroundColor: bgcolor,
+      //};
 
     
 
@@ -124,7 +125,8 @@ export default function Formulario () {
 
     return (
         <>
-            <View style={[styles.formulario, bgColorApp]}>
+            <Gradiente/>
+            <View style={styles.formulario}>
                 <View>
                     <TextInput
                         value={ciudad}

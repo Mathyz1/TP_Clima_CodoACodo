@@ -1,9 +1,12 @@
 import React from 'react';
-import { Text, StyleSheet, View, Button } from 'react-native';
+import { Text, StyleSheet, View, Button, Dimensions } from 'react-native';
 import globalStyles from '../styles/globalStyles';
 
-//import LinearGradient from 'react-native-linear-gradient';
-import LinearGradient from "react-native-linear-gradient";
+import Gradiente from '../components/Gradiente';
+
+import AppLoading from 'expo-app-loading';
+import { useFonts, Poppins_500Medium } from '@expo-google-fonts/poppins';
+
 
 const Inicio = ({navigation}) => {
     
@@ -15,20 +18,28 @@ const Inicio = ({navigation}) => {
         navigation.navigate('Ciudades');
     };
 
-    return (  
-        <View style={styles.contenedor}>
-            <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
-                <Text style={styles.buttonText}>
-                    Sign in with Facebook
-                </Text>
-            </LinearGradient>
-            <Text style={styles.nombreAplicacion}>App Clima</Text>
-            <Text style={globalStyles.titulo}>Descripcion</Text>
-            <Text>Aca va la descripcion de la aplicacion</Text>
-            <Text style={globalStyles.titulo}>Uso</Text>
-            <Text>Aca va como se usa la aplicacion</Text>       
-        </View>
-    );
+    let [fontsLoaded] = useFonts({
+        Poppins_500Medium,
+      });
+    
+      if (!fontsLoaded) {
+        return <AppLoading />;
+      } else {
+            return (  
+                <>
+                <Gradiente/>
+                <View style={styles.contenedor}>
+                    
+                    <Text style={styles.nombreAplicacion}>App Clima</Text>
+                    <Text style={[globalStyles.titulo, styles.poppins]}>Descripcion</Text>
+                    <Text>Aca va la descripcion de la aplicacion</Text>
+                    <Text style={[globalStyles.titulo, styles.poppins]}>Uso</Text>
+                    <Text>Aca va como se usa la aplicacion</Text>  
+                     
+                </View>
+                </>
+            );
+      }
 };
  
 const styles = StyleSheet.create({
@@ -41,20 +52,9 @@ const styles = StyleSheet.create({
         fontSize:30,
 
     },
-
-    linearGradient: {
-        flex: 1,
-        paddingLeft: 15,
-        paddingRight: 15,
-        borderRadius: 5
-      },
-      buttonText: {
-        fontSize: 18,
-        textAlign: 'center',
-        margin: 10,
-        color: '#ffffff',
-        backgroundColor: 'transparent',
-      },
+    poppins:{
+        fontFamily: "Poppins_500Medium",
+    },
 });
 
 export default Inicio;
